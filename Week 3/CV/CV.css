@@ -1,0 +1,47 @@
+body
+{
+  font-family: sans-serif;
+}
+
+h1
+{
+  color: blue;
+}
+
+#contact
+{
+  font-weight: bold;
+}
+
+#picture
+{
+  width: 45%;
+}
+
+h2
+{
+  margin-top: 4%;
+  text-align: center;
+  background-color: lightgray;
+  font-variant: small-caps;
+  letter-spacing: 4px;
+  color:purple;
+}
+
+#now
+{
+  font-size: x-small;
+}
+
+#educationTable {
+  border:1px solid black;
+  width: 100%;
+}
+#educationTable th, #educationTable td{
+  border:1px solid black;
+  padding: 15px;
+}
+
+#myPortrait {
+  width: 200px;
+}

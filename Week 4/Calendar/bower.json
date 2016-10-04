@@ -1,0 +1,23 @@
+{
+  "name": "Calendar",
+  "authors": [
+    "TaoWang"
+  ],
+  "description": "Lab 2 for EECS1012",
+  "main": "index.html",
+  "keywords": [
+    "calendar"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.8"
+  }
+}
