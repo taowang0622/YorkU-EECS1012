@@ -5,10 +5,10 @@ var firstTime_global = -1;
 
 //Two locations below are for calibrating
 var LOCATION1 = {
-    latitude: 43.7716775,
-    longitude: -79.5058877,
-    u: 195,
-    v: 265
+    latitude: 43.7707298,
+    longitude: -79.5079695,
+    u: 114,
+    v: 287
 };
 var LOCATION2 = {
     latitude: 43.7770194,
@@ -26,7 +26,12 @@ var CACHES = [
     {
         lat: 43.7740883,
         long: -79.5036843,
-        description: 'near student center'
+        description: 'near student centre'
+    },
+    {
+        lat:43.7716775,
+        long: -79.5058877,
+        description: 'Near Bergeron centre'
     }
 ];
 
@@ -60,7 +65,7 @@ function handleError(error) {
     var errorstr = "Really unknown error";
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            errorstr = "Permission deined";
+            errorstr = "Permissin deined";
             break;
         case error.POSITION_UNAVAILABLE:
             errorstr = "Permission unavailable";

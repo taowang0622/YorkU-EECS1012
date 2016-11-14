@@ -8,6 +8,10 @@ div#map>a{
     left:0;
 }
 
+div#map{
+    padding-left: 0;
+}
+
 .hideElem{
     display: none;
 }
