@@ -31,7 +31,7 @@ var CACHES = [
 ];
 
 var BALL_FOR_ME = document.getElementById('me');
-var BALL_FOR_TARGET = document.getElementById('target');
+var MAP_DIV = document.getElementById('map');
 
 function togglegps() {
     //show the 'me' ball
@@ -99,7 +99,7 @@ function showPosition(position) {
     if (firstTime_global < 0) {
         firstTime_global = position.timestamp;
     }
-    now.innerHTML = position.timestamp - firstTime_global;
+    now.innerHTML = String(position.timestamp - firstTime_global);
 
 }
 
@@ -113,36 +113,58 @@ function interplolate(gps1, gps2, u1, u2, gps) {
     return u1 + (u2 - u1) * (gps - gps1) / (gps2 - gps1);
 }
 
-var showCache = (function () {
-    var counter = 0;
-    return function () {
-        BALL_FOR_TARGET.classList.remove('hideElem');
+function createCaches() {
+    CACHES.forEach(function (item, index, arr) {
+        var anLink = document.createElement('a');
+        var anImg = document.createElement('img');
+        anLink.setAttribute('id', 'cache' + index);
+        anLink.classList.add('hideElem');
+        anImg.setAttribute('src', 'target.gif');
+        anLink.appendChild(anImg);
 
-        counter %= CACHES.length;
-        var lat = CACHES[counter].lat;
-        var long = CACHES[counter++].long;
-
-        var u = interplolate(LOCATION1.longitude, LOCATION2.longitude, LOCATION1.u, LOCATION2.u, long);
-        var v = interplolate(LOCATION1.latitude, LOCATION2.latitude, LOCATION1.v, LOCATION2.v, lat);
+        var u = interplolate(LOCATION1.longitude, LOCATION2.longitude, LOCATION1.u, LOCATION2.u, item.long);
+        var v = interplolate(LOCATION1.latitude, LOCATION2.latitude, LOCATION1.v, LOCATION2.v, item.lat);
 
         // locate the "target" ball
-        BALL_FOR_TARGET.style.left = u - 11 + 'px'; //In strict mode, 'px' can not be omitted!!!!
-        BALL_FOR_TARGET.style.top = v - 11 + 'px';
+        anLink.style.left = u - 11 + 'px'; //In strict mode, 'px' can not be omitted!!!!
+        anLink.style.top = v - 11 + 'px';
 
-        BALL_FOR_TARGET.setAttribute('data-toggle', 'popover');
-        BALL_FOR_TARGET.setAttribute('title', 'Cache ' + counter);
-        BALL_FOR_TARGET.setAttribute('data-content', CACHES[counter - 1].description);
+        //set attributes for popovers
+        anLink.setAttribute('data-toggle', 'popover');
+        anLink.setAttribute('data-placement', 'top');
+        anLink.setAttribute('data-html', 'true');
+        anLink.setAttribute('title', '<b>' + 'Cache ' + (index + 1) + '</b>');
+        anLink.setAttribute('data-content', item.description);
 
-        $('#target').popover('show');
+        MAP_DIV.appendChild(anLink);
+    });
+
+}
+
+var showCache = (function () {
+    var counter = 0;
+    var previousCache = null;
+    return function () {
+        counter %= CACHES.length;
+        if (previousCache !== null) {
+            previousCache.classList.add('hideElem');
+            //hide the popover for previous cache
+            $('#' + previousCache.id).popover('hide');
+        }
+
+        var cache = document.getElementById('cache' + counter);
+        cache.classList.remove('hideElem');
+        //show the current cache
+        $('#cache' + counter).popover('show');
+        previousCache = cache;
+        ++counter;
     }
 })();
 
 //initiation
 window.onload = function () {
+    createCaches();
     //register all event handlers
     document.getElementById('togglegps').onclick = togglegps;
-    document.getElementById('showNextGeocache').onmousedown = function () {
-        $('#target').popover('destroy');
-    };
-    document.getElementById('showNextGeocache').onmouseup = showCache;
+    document.getElementById('showNextGeocache').onclick = showCache;
 };

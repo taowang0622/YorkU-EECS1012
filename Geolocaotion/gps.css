@@ -1,11 +1,13 @@
 #map{
     position: relative;
 }
-#target, #me{
+
+div#map>a{
     position: absolute;
     top:0;
     left:0;
 }
+
 .hideElem{
     display: none;
 }
