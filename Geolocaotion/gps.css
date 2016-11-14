@@ -1,0 +1,11 @@
+#map{
+    position: relative;
+}
+#target, #me{
+    position: absolute;
+    top:0;
+    left:0;
+}
+.hideElem{
+    display: none;
+}

@@ -1,0 +1,42 @@
+<!--<!DOCTYPE html> &lt;!&ndash;strict mode&ndash;&gt;-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Geolocation</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="gps.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Geocaching</h1>
+
+    <div id="map">
+        <img id="campusMap" src="map.png" class="thumbnail">
+        <a id="target" class="hideElem"><img src="target.gif"></a>
+        <div id="me" class="hideElem"><img src="me.gif"></div>
+    </div>
+
+    <div>
+        <button id="togglegps" class="btn btn-primary btn-sm">Start GPS</button>
+        Lattitude <span id="latitude"> ???? </span>
+        Longitude <span id="longitude"> ???? </span>
+        Now <span id="now"> ???? </span>
+
+        <p>debug: <span id="debug"></span></p>
+        <button id="showNextGeocache" type="button" class="btn btn-sm btn-danger">Next Geocache</button>
+    </div>
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="gps.js"></script>
+</body>
+</html>
