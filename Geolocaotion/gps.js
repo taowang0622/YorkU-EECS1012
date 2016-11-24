@@ -16,7 +16,6 @@ var LOCATION2 = {
     u: 425,
     v: 65
 };
-
 var CACHES = [
     {
         lat: 43.7757618,
@@ -34,7 +33,6 @@ var CACHES = [
         description: 'Near Bergeron centre'
     }
 ];
-
 var BALL_FOR_ME = document.getElementById('me');
 var MAP_DIV = document.getElementById('map');
 
