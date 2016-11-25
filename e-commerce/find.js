@@ -1,70 +1,71 @@
-function find(){
-  var formElem = document.getElementById('pulldown');
-  var children = formElem.childNodes;
-  var filter = '';
-  for(var i = 0; i < children.length; i++){
-    if(children[i].nodeName === 'SELECT'){
-      if(children[i].value === '') continue;
-      filter = filter + children[i].name + '\=' + "'" + children[i].value + "'" + ' and ';
+function find() {
+    var selectELems = [document.getElementById('artist'), document.getElementById('year')];
+    var filter = '';
+    for (var i = 0; i < selectELems.length; i++) {
+      if (selectELems[i].value === '') continue;
+      filter = filter + selectELems[i].name + '\=' + "'" + selectELems[i].value + "'" + ' and ';
     }
-  }
 
-  var query = 'select * from collection ';
-  if(filter !== '') {
-    query += 'where ' + filter.slice(0, -4);
-  }
+    var query = 'select * from collection ';
+    if (filter !== '') {
+        query += 'where ' + filter.slice(0, -4);
+    }
 
-  // alert('"' + query + '"');
+    // alert('"' + query + '"');
 
-  var resultsElem = document.getElementById('results');
-  var displayResults = function(arr){
-      //delete all child nodes
-      while(resultsElem.firstChild){
-        resultsElem.removeChild(resultsElem.firstChild);
-      }
+    var resultsElem = document.getElementById('results');
+    // var display = '';
+    var displayResults = function (arr) {
+        //delete all child nodes
+        while (resultsElem.firstChild) {
+            resultsElem.removeChild(resultsElem.firstChild);
+        }
 
-      for(var i = 0; i < arr.length; i++){
-        var div = document.createElement('div');
-        resultsElem.appendChild(div);
+         for (var i = 0; i < arr.length; i++) {
+            resultsElem.innerHTML +=  `
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object thumbnail" src="${arr[i].cover}" width="100px" height="100px" alt="cover">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">${arr[i].album}</h4>
+    <p><span class="label label-danger">\$${arr[i].price}</span></p>
+    <p style="color:green" id="stock${arr[i].id}">${(arr[i].number > 0)? "In Stock": "Out of Stock"}</p>
+    <div><button type="button" class="btn btn-info btn-xs" id="purchase${arr[i].id}">
+    <span class="glyphicon glyphicon-shopping-cart"></span> Purchase</button></div>
+  </div>
+</div>
+        `;
+        }
 
-        var img = document.createElement('img');
-        img.setAttribute('src', arr[i].cover);
-        img.setAttribute('width', '100px');
-        img.setAttribute('height', '100px');
-        div.appendChild(img);
-
-        var album = document.createElement('span');
-        album.innerHTML = arr[i].album + ' ';
-        div.appendChild(album);
-
-        var price = document.createElement('span');
-        price.innerHTML = arr[i].price + ' ';
-        div.appendChild(price);
-
-        var purchaseBtn = document.createElement('button');
-        purchaseBtn.innerHTML = 'Purchase';
-        purchaseBtn.setAttribute('type', 'button');
-        purchaseBtn.onclick = (function(){
-          var id = arr[i].id;  //store arr[i].id
+        //register event handlers for every purchase button!
+        arr.forEach(function(item, index){
+          document.getElementById(`purchase${item.id}`).onclick = (function(){
+          var id = item.id;  //store arr[i].id
           return function(){
             // alert(id);
             access(`select * from collection where id=${id}`, purchaseCallback)
           }
         })();
-        div.appendChild(purchaseBtn);
-      }
-  }
+        })
+    };
 
-  access(query, displayResults);
+
+    access(query, displayResults);
 }
 
-function purchaseCallback(arr){
-  //arr only has one element
-  if(arr[0].number < 1){
-    alert(`The album: "${arr[0].album}" is out of stock!`);return;
-  }
-  else {
-    alert(`You have been charged \$${arr[0].price} for the album "${arr[0].album}"`);
-    access(`update collection set number=${arr[0].number - 1} where id=${arr[0].id}`, function(){});
-  }
+function purchaseCallback(arr) {
+    //arr only has one element
+    if (arr[0].number < 1) {
+        alert(`The album: "${arr[0].album}" is out of stock!`);
+    }
+    else {
+        alert(`You have been charged \$${arr[0].price} for the album "${arr[0].album}"`);
+        access(`update collection set number=${arr[0].number - 1} where id=${arr[0].id}`, function () {
+        });
+        //update the stock status;
+        if((arr[0].number - 1) === 0) document.getElementById(`stock${arr[0].id}`).innerHTML = 'Out of Stock';
+    }
 }

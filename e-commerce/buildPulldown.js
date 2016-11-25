@@ -1,7 +1,7 @@
-//The paramter arr is in the form of, for example, [{artist:"Led Zeppelin"},{artist:"Davis, Miles"}]
+//The parameter arr is in the form of, for example, [{artist:"Led Zeppelin"},{artist:"Davis, Miles"}]
 function createAPulldown(arr){
   // alert(JSON.stringify(arr));
-  //Gain the titile of the pulldown
+  //Gain the title of the pulldown
   var str = JSON.stringify(arr[0]);
   var reg = /^{"([^"]+)".+/;
   var idOfPulldown = str.match(reg)[1];
