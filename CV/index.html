@@ -1,75 +1,237 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    
-    <title>EECS1012 CV</title>
-    <script type="text/javascript" src="CV.js"></script>
-    <link rel="stylesheet" href="CV.css" charset="utf-8"/>
-  </head>
-  <body onload="start();">
-    <table width="100%" cellspacing="2">
-      <tbody>
-        <tr>
-          <td>
-            <h1>
-               Tao Wang
+
+    <!--<link rel="stylesheet" href="CV.css" charset="utf-8"/>-->
+
+    <style>
+        body {
+             font-size: 12pt;
+         }
+
+        body
+        {
+            font-family: sans-serif;
+        }
+
+        h1
+        {
+            color: blue;
+        }
+        h2
+        {
+            margin: 0;
+            text-align: center;
+            background-color: lightgray;
+            font-variant: small-caps;
+            letter-spacing: 2px;
+            color:purple;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<table width="100%" cellspacing="5">
+    <tbody>
+    <tr>
+        <td>
+            <h1 style="margin: 0; font-size: 20pt">
+                Tao Wang
             </h1>
             <div class="address">
-              1234 Grand Street, Anytown, Ontario, M5M 5
-              <p id="contact">
-                Tel. (647) 555-5555,
-                <br/> Email: Kelly.B@mailserver.com
-              </p>
+                7330 Saint Denis Street, Montreal, QC H2R 2E4<br>
+                <b>
+                    (647) 550-6511 | taowang0622@gmail.com | https://github.com/taowang0622
+                </b>
             </div>
-          </td>
-          <td align="right" style="width:200px; height:400px">
-            <img id="myPortrait" src="myPortrait2.jpg" id="picture" onclick="swap(this)" />
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center">
-            <span id="now">hi</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <hr/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr/>
 
-    <h2>Objective</h2>
-    <span class="tex">
-      Seeking an entry level position with the opportunity to grow.
-    </span>
+<h2>Education</h2>
+<table id="educationTable" width="100%">
+    <tr>
+        <th align="left">Lassonde School of Engineering, York University</th>
+        <th align="right">Sep 2016 - Dec 2019</th>
+    </tr>
+    <tr>
+        <td>Bachelor of Science in Computer Science</td>
+    </tr>
+</table>
 
-    <h2>Experience</h2>
-    <ol>
-      <li>
-        Volunteer, 2010 Shanghai World Expo, Shanghai, China. (Jun-Aug 2010)
+<h2>Technical Skills</h2>
+<ul style="margin: 5px">
+    <li>
+        <b>Programming Languages: </b>Java, JavaScript, Python, C/C++, TypeScript, Swift
+    </li>
+    <li>
+        <b>Front-end: </b>ReactJS, Redux, React Native, AngularJS, Bootstrap, HTML, CSS
+    </li>
+    <li>
+        <b>Back-end: </b>NodeJS (Express, Mongoose, REST, GraphQL, Apollo),
+        <br>
+        Java (Spring Framework, Spring Boot, Prometheus, Grafana, J2EE, Spring Security, Maven, Tomcat, MyBatis, JUnit)
+    </li>
+    <li>
+        <b>Databases: </b>MySQL, PostgreSQL, MongoDB, Redis
+    </li>
+    <li>
+        <b>Tools: </b>Git, Kubernetes, Docker, ElasticSearch, Travis, AWS, Bash Scripting, SQL, Jira, Trello
+    </li>
+</ul>
+
+<h2>Work Experience</h2>
+<table width="100%">
+    <tr>
+        <th align="left" style="width: 75%">Software Developer intern, Nuance Communications, Montreal</th>
+        <th align="right">Jan 2019 - Present</th>
+    </tr>
+    <tr>
+        <td>
+            <ul style="margin: 0">
+                <li>Working in the automotive division, under Natural Language Processing Service(NLPS) team</li>
+                <li>Worked on a text and speech processing web application (Webclient) with JQuery, NodeJS, Express, MongoDB, Redis and Python.</li>
+                <li>On the webclient team, developing and designing new UI for Webclient using ReactJS and Redux.</li>
+                <li>On the AI SWAT Team, developing a tool for scoring results returned from AI using Python.</li>
+                <li>On the car manual team, migrating Java8 to OpenJDK 11 and Spring boot 1 to 2, and integrating Micrometer, Prometheus and Grafana to
+                existing car manual components for monitoring and analysis in production.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" style="width: 75%">Jr. Developer Intern, Nascent Digital, Toronto</th>
+        <th align="right">Fall 2018</th>
+    </tr>
+    <tr>
+        <td>
+            <ul style="margin: 0">
+                <li>Worked in a fast-paced startup agile environment and closely collaborated with UI/UX designers and QA engineers.</li>
+                <li>Worked on an AR mobile app for IOS and Android using React Native, Java and Swift. Fixed UI bugs and helped migrate Swift code on IOS to Java code on Android.</li>
+                <li>Worked on a document scanning mobile app for IOS and Android, using React Native for UI, and NodeJS, GraphQL, Apollo and PostgreSQL for backend, and Jest for testing.</li>
+                <li>Set up CI/CD pipelines using Travis, Fastlane and HockeyApp for building and distributing apps automatically.</li>
+                <li>Integrated Google Firebase Analytics into apps.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" style="width: 75%">Developer Summer Intern, Global System Management, RBC, Toronto</th>
+        <th align="right">Summer 2018</th>
+    </tr>
+    <tr>
+        <td>
+            <ul style="margin: 0">
+                <li>Worked on a web-based distributed system for RBC employees worldwide to search and report RBC assets.</li>
+                <li>Mainly worked with NodeJS, Elasticsearch, Express, AngularJS, and Angular6.</li>
+                <li>Fixed bugs on the frontend and backend reported by users.</li>
+                <li>Migrated the frontend application from AngularJS to Angular 6.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" style="width: 75%">Frontend Web Developer Intern, Lokafy, Toronto</th>
+        <th align="right">Summer 2017</th>
+    </tr>
+    <tr>
+        <td>
+            <ul style="margin: 0">
+                <li>Rewrote a dashboard web app using AngularJS and Bootstrap.</li>
+                <li>Redesigned the website and wrote some responsive web pages.</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2>Independent Projects</h2>
+<ul style="margin: 5px">
+    <li>
+        <b>A home rental and sale website powered by Java microservices</b> (Aug 2018 - Present)
         <br/>
-        <p>
-  Greeted visiters, and helped them locate where they wanted to go. Cooperated with other volunteers to launch publicity campaigns.
-        </p>
-      </li>
+        <ul>
+            <li>For now working on the monolithic architecture using Spring Boot. In the future migrating to the microservice architecture.</li>
+        </ul>
+    </li>
+    <li>
+        <b>A configurable secure user authentication Java library for Spring Boot Applications</b> (Mar 2018 - Present)
+        <br/>
+        <ul>
+            <li>Provides different RESTful authentication services to mobile and web</li>
+            <li>Besides username-password authentication and remember-me feature based on Spring Security, SMS authentication and verification code validation are added.</li>
+            <li>You can configure your own login page, which APIs to be protected, your own image and SMS verification code generation logic, etc, by passing simple key-value pairs in a
+                Java properties file.</li>
+        </ul>
+    </li>
+    <li>
+        <b>A published NPM package "portal-static"</b> (Jun 2018 - July 2018)
+        <br/>
+        <ul>
+            <li>A CLI that creates a NodeJS web server to serve up local static files.</li>
+            <li>Run the CLI, then a web page is opened automatically that lists all static resources according to passed
+                arguments.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <b>A Java-based e-commerce website</b> (Dec 2017 - Jan 2018)
+        <br/>
+        <ul>
+            <li>Supports two types of users: buyer and seller.</li>
+            <li>Buyers can add items to the shopping cart and check all purchases in their accounts</li>
+            <li>Sellers can add new items and delete items</li>
+            <li>Using Spring Framework, MyBatis, MySQL, Freemarker, Docker, AWS</li>
+        </ul>
+    </li>
+    <li>
+        <b>A high-concurrency Java-based web server</b> (Jan 2017 - Jan 2018)
+        <br/>
+        <ul>
+            <li>A server for a shopping website that can handle very high-concurrency situations by optimizing transactional and multi-threaded processes.
+            </li>
+            <li>On the client side, using Bootstrap and AngularJS</li>
+            <li>On the server side, using Spring framework, MyBatis, Redis, MySQL, Docker and AWS.</li>
+        </ul>
+    </li>
+    <li>
+        <b>A restaurant website</b> (Mar 2016 - Dec 2016)
+        <br/>
+        <usl>
+            <li>You can check information about the restaurant history, contact, staff, dishes, etc.</li>
+            <li>Sign in by your username and password, or your social media accounts, then you can save your favorite
+                dishes and rate dishes you have tried.
+            </li>
+            <li>On the client side, using Bootstrap and AngularJS</li>
+            <li>On the server side, using NodeJS, Express framework, and MongoDB.</li>
+        </usl>
+    </li>
 
-      <li>Learner, www.coursera.org. (July 2014 - present)
-        <p>
-          Learned to how to make games with Python, and have made some simple games, like tic-tac-toe, asteroids, ping pong, etc. Learned
-           to how to use some web frameworks like Bootstrp, AngularJS to construct a presentation layer.
-        </p>
-      </li>
-    </ol>
+    <li>
+        <b>Python mini-games</b> (Dec 2015 - Nov 2016)
+        <br/>
+        <ul>
+            <li>A bunch of mini games based on a browser-based Python interpreter that is CodeSkulptor.</li>
+            <li>Asteroids, Tic-Tac-Toe, 2048, Zombie Apocalypse, The Fifteen Puzzle, Word Wrangler, Solitaire Tantrix.
+            </li>
+        </ul>
+    </li>
+</ul>
 
-    <h2>Education</h2>
-    <table id="educationTable">
-    <tr><th>Date</th><th>Degree</th><th>Institution</th><th>Notes</th></tr>
-    <tr><td>2016</td><td><i>First year</i></td><td>York University</td><td>EECS</td></tr>
-    </table>
-
-    <h2>Skills & Hobbies</h2>
-    <ul>
-      <li>Familiar with HTML, CSS, JS, Java, C++ and Python</li>
-      <li>Like TV games and anime</li>
-      <li>Like sports, like jogging, swimming</li>
-    </ul>
-  </body>
+<h2>Extra-curricular Activities</h2>
+<table width="100%">
+    <tr>
+        <th align="left">Hackathons</th>
+    </tr>
+    <tr>
+        <td>
+            <ul style="margin: 0">
+                <li>At YorkU Hackfest 2017, worked as a backend developer using NodeJS for a forum-like web app.</li>
+                <li>At YorkU Hackfest 2018, worked as a backend developer using J2EE, Spring Boot and Spring Security for a B2B wholesale web system.
+                </li>
+                <li>At RBC SummerHack 2018, worked as a backend developer using ElasticSearch, NodeJS and AWS for a web app aiming to engage and connect all RBC interns.</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+</body>
 </html>
